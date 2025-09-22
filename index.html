@@ -103,5 +103,21 @@
   </ul>
 
   <p><small>Tip: Some intents may not work depending on Android version / manufacturer restrictions.</small></p>
+
+  <script>
+    function openSafe(url) {
+      try {
+        window.location.href = url;
+        // give 2 seconds to try before redirecting
+        setTimeout(function () {
+          if (document.visibilityState === "visible") {
+            window.location.href = "error.html";
+          }
+        }, 2000);
+      } catch (e) {
+        window.location.href = "error.html";
+      }
+    }
+  </script>
 </body>
 </html>
