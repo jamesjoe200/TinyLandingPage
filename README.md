@@ -1,3 +1,6 @@
+page
+https://jamesjoe200.github.io/TinyLandingPage/
+
 # TinyLandingPage
 A light Landing page for s70 browser leverage test
 
