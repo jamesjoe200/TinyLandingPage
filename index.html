@@ -169,7 +169,47 @@
     <a href="#" class="link" onclick="openAndWatch('intent://sdcard/Download/test.apk#Intent;scheme=file;action=android.intent.action.VIEW;type=application/vnd.android.package-archive;end')">intent: file apk</a>
     <a href="#" class="link" onclick="openAndWatch('https://example.com/test.apk')">https://example.com/test.apk</a>
   </div>
+  <h3>Diagnostics</h3>
+  <pre id="log">Click a link and observe the result. Each click logs a timestamp. If nothing happens the page will fallback to <code>error.html</code> after 2s.</pre>
 
+  <script>
+    // generic navigation helper: try go to URL; if after timeout nothing changed, go to error.html
+    function openAndWatch(url) {
+      // log attempt
+      const l = document.getElementById('log');
+      const t = new Date().toISOString();
+      l.textContent += "\\n" + t + " -> " + url;
+  
+      // open by setting location (some browsers will replace page)
+      try {
+        window.location.href = url;
+      } catch (e) {
+        // fail fast
+        window.location.href = 'error.html';
+        return;
+      }
+  
+      // fallback: after 1.8s assume nothing happened and open error page
+      // (slightly less than 2s to avoid race on slower browsers)
+      const timeout = setTimeout(function(){
+        // if still on this page then navigate to error.html
+        if (document.visibilityState === 'visible') {
+          window.location.href = 'error.html';
+        }
+      }, 1800);
+  
+      // if page is hidden / navigated away, clear fallback
+      document.addEventListener('visibilitychange', function onVis(){
+        if (document.visibilityState !== 'visible') {
+          clearTimeout(timeout);
+          document.removeEventListener('visibilitychange', onVis);
+        }
+      });
+    }
+  
+    function goBack(){ try{ history.back(); }catch(e){ location.href='index.html'; } }
+    function goForward(){ try{ history.forward(); }catch(e){ } }
+  </script>
 
   <p><small>Tip: Some intents may not work depending on Android version / manufacturer restrictions.</small></p>
 
