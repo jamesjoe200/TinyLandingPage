@@ -162,6 +162,18 @@
     s += dump(navigator);
     
     document.getElementById("info").textContent = s;
+
+    // --- Script 2: Check feature support ---
+    let features = [
+      "serviceWorker", "bluetooth", "usb", "serial", 
+      "mediaDevices", "getUserMedia", "localStorage",
+      "indexedDB", "speechSynthesis"
+    ];
+    let out = "Feature support:\n";
+    features.forEach(f => {
+      out += f + ": " + (f in navigator) + "\n";
+    });
+    document.getElementById("features").textContent = out;
   </script>
 
   
