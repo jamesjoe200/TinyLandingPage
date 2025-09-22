@@ -36,24 +36,26 @@
   <p>Click any link below to test functions:</p>
 
   <h2>⚙️ Android Settings</h2>
-  <ul>
-    <li><a href="intent://settings#Intent;scheme=android-app;end">Open Main Settings</a></li>
-    <li><a href="intent://wifi#Intent;scheme=android-app;end">Wi-Fi Settings</a></li>
-    <li><a href="intent://bluetooth#Intent;scheme=android-app;end">Bluetooth Settings</a></li>
-    <li><a href="intent://date#Intent;scheme=android-app;end">Date & Time</a></li>
-    <li><a href="intent://security#Intent;scheme=android-app;end">Security Settings</a></li>
-    <li><a href="intent://apps#Intent;scheme=android-app;end">App Management</a></li>
-  </ul>
+    <ul>
+      <li><a href="intent:#Intent;action=android.settings.SETTINGS;end">Main Settings</a></li>
+      <li><a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end">Wi-Fi Settings</a></li>
+      <li><a href="intent:#Intent;action=android.settings.BLUETOOTH_SETTINGS;end">Bluetooth Settings</a></li>
+      <li><a href="intent:#Intent;action=android.settings.DATE_SETTINGS;end">Date & Time</a></li>
+      <li><a href="intent:#Intent;action=android.settings.SECURITY_SETTINGS;end">Security Settings</a></li>
+      <li><a href="intent:#Intent;action=android.settings.APPLICATION_SETTINGS;end">App Management</a></li>
+      <li><a href="intent:#Intent;action=android.settings.ABOUT_SETTINGS;end">About Device</a></li>
+      <li><a href="intent:#Intent;action=android.settings.DEVICE_INFO_SETTINGS;end">Device Info</a></li>
+    </ul>
 
   <h2>🌐 Browser & Apps</h2>
-  <ul>
-    <li><a href="http://www.google.com">Google Search</a></li>
-    <li><a href="intent://com.android.browser#Intent;scheme=android-app;end">Default Browser</a></li>
-    <li><a href="intent://com.android.vending#Intent;scheme=android-app;end">Google Play Store</a></li>
-    <li><a href="intent://com.google.android.youtube#Intent;scheme=android-app;end">YouTube App</a></li>
-  </ul>
+    <ul>
+      <li><a href="http://www.google.com">Google Search</a></li>
+      <li><a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_BROWSER;end">Default Browser</a></li>
+      <li><a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_MARKET;end">Google Play Store</a></li>
+      <li><a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_YOUTUBE;end">YouTube App</a></li>
+    </ul>
 
-  <h2>📥 APK Installs</h2>
+  <h2>📥 APK Installs (WIP)</h2>
   <ul>
     <li><a href="https://yourserver.com/myapp.apk">Download MyApp.apk</a></li>
     <li><a href="https://yourserver.com/fdroid.apk">Download F-Droid.apk</a></li>
