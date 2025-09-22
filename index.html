@@ -102,6 +102,75 @@
     <li><a href="https://www.google.com">Google</a></li>
   </ul>
 
+  
+  <h2>EXTRA STUFF (WIP_CODEDUMP)Common / standard schemes</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('http://example.com')">http://example.com</a>
+    <a href="#" class="link" onclick="openAndWatch('https://example.com')">https://example.com</a>
+    <a href="#" class="link" onclick="openAndWatch('file:///sdcard/index.html')">file:///sdcard/index.html</a>
+    <a href="#" class="link" onclick="openAndWatch('content://settings/system')">content://settings/system</a>
+    <a href="#" class="link" onclick="openAndWatch('about:blank')">about:blank</a>
+    <a href="#" class="link" onclick="openAndWatch('about:version')">about:version</a>
+    <a href="#" class="link" onclick="openAndWatch('chrome://version')">chrome://version</a>
+  </div>
+
+  <h2>Phone / messaging / mail</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('tel:+123456789')">tel:+123456789</a>
+    <a href="#" class="link" onclick="openAndWatch('sms:+123456789')">sms:+123456789</a>
+    <a href="#" class="link" onclick="openAndWatch('mailto:test@example.com')">mailto:test@example.com</a>
+  </div>
+
+  <h2>Maps / geo / navigation</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('geo:37.7749,-122.4194')">geo:lat,long</a>
+    <a href="#" class="link" onclick="openAndWatch('google.navigation:q=37.7749,-122.4194')">google.navigation:q=lat,long</a>
+    <a href="#" class="link" onclick="openAndWatch('maps://maps.google.com/?q=1')">maps://</a>
+  </div>
+
+  <h2>Market / Play store / app URIs</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('market://details?id=com.android.chrome')">market:// (Chrome)</a>
+    <a href="#" class="link" onclick="openAndWatch('intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_BROWSER;end')">intent: MAIN browser</a>
+    <a href="#" class="link" onclick="openAndWatch('intent://#Intent;action=android.settings.SETTINGS;end')">intent: SETTINGS (generic)</a>
+  </div>
+
+  <h2>Android settings actions (standard)</h2>
+  <div class="row">
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.SETTINGS;end')">android.settings.SETTINGS</a>
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.WIFI_SETTINGS;end')">WIFI_SETTINGS</a>
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.BLUETOOTH_SETTINGS;end')">BLUETOOTH_SETTINGS</a>
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.DATE_SETTINGS;end')">DATE_SETTINGS</a>
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.APPLICATION_SETTINGS;end')">APPLICATION_SETTINGS</a>
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.ABOUT_SETTINGS;end')">ABOUT_SETTINGS</a>
+    <a href="#" class="link small" onclick="openAndWatch('intent:#Intent;action=android.settings.SECURITY_SETTINGS;end')">SECURITY_SETTINGS</a>
+  </div>
+
+  <h2>Legacy / file-serving / FTP / SMB</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('ftp://speedtest.tele2.net/1MB.zip')">ftp:// (test)</a>
+    <a href="#" class="link" onclick="openAndWatch('smb://192.168.0.10/share')">smb://</a>
+  </div>
+
+  <h2>Developer / debug / vendor-style</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('about:debug')">about:debug</a>
+    <a href="#" class="link" onclick="openAndWatch('acotech://settings')">acotech://settings</a>
+    <a href="#" class="link" onclick="openAndWatch('ecarx://settings')">ecarx://settings</a>
+    <a href="#" class="link" onclick="openAndWatch('atlas://settings')">atlas://settings</a>
+    <a href="#" class="link" onclick="openAndWatch('carlinkit://')">carlinkit://</a>
+    <a href="#" class="link" onclick="openAndWatch('autokit://')">autokit://</a>
+    <a href="#" class="link" onclick="openAndWatch('com.ecarx.settings://')">com.ecarx.settings://</a>
+  </div>
+
+  <h2>Experimental / installer / package</h2>
+  <div class="row">
+    <a href="#" class="link" onclick="openAndWatch('file:///sdcard/Download/test.apk')">file:///sdcard/Download/test.apk</a>
+    <a href="#" class="link" onclick="openAndWatch('intent://sdcard/Download/test.apk#Intent;scheme=file;action=android.intent.action.VIEW;type=application/vnd.android.package-archive;end')">intent: file apk</a>
+    <a href="#" class="link" onclick="openAndWatch('https://example.com/test.apk')">https://example.com/test.apk</a>
+  </div>
+
+
   <p><small>Tip: Some intents may not work depending on Android version / manufacturer restrictions.</small></p>
 
     <h2>WebUSB/WebSerial test</h2>
