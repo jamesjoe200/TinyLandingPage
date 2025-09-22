@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>IHU Launcher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      padding: 20px;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      color: #00aaff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    a:hover {
+      color: #ff8800;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚗 IHU Tools Launcher</h1>
+  <p>Click any link below to test functions:</p>
+
+  <h2>⚙️ Android Settings</h2>
+  <ul>
+    <li><a href="intent://settings#Intent;scheme=android-app;end">Open Main Settings</a></li>
+    <li><a href="intent://wifi#Intent;scheme=android-app;end">Wi-Fi Settings</a></li>
+    <li><a href="intent://bluetooth#Intent;scheme=android-app;end">Bluetooth Settings</a></li>
+    <li><a href="intent://date#Intent;scheme=android-app;end">Date & Time</a></li>
+    <li><a href="intent://security#Intent;scheme=android-app;end">Security Settings</a></li>
+    <li><a href="intent://apps#Intent;scheme=android-app;end">App Management</a></li>
+  </ul>
+
+  <h2>🌐 Browser & Apps</h2>
+  <ul>
+    <li><a href="http://www.google.com">Google Search</a></li>
+    <li><a href="intent://com.android.browser#Intent;scheme=android-app;end">Default Browser</a></li>
+    <li><a href="intent://com.android.vending#Intent;scheme=android-app;end">Google Play Store</a></li>
+    <li><a href="intent://com.google.android.youtube#Intent;scheme=android-app;end">YouTube App</a></li>
+  </ul>
+
+  <h2>📥 APK Installs</h2>
+  <ul>
+    <li><a href="https://yourserver.com/myapp.apk">Download MyApp.apk</a></li>
+    <li><a href="https://yourserver.com/fdroid.apk">Download F-Droid.apk</a></li>
+    <li><a href="https://yourserver.com/browser.apk">Download Alt Browser.apk</a></li>
+  </ul>
+
+  <h2>🔧 Other Tools</h2>
+  <ul>
+    <li><a href="https://www.waze.com/en-GB/live-map">Waze Map</a></li>
+    <li><a href="https://www.google.com/maps">Google Map</a></li>
+    <li><a href="https://www.google.com">Google</a></li>
+  </ul>
+
+  <p><small>Tip: Some intents may not work depending on Android version / manufacturer restrictions.</small></p>
+</body>
+</html>
