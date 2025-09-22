@@ -109,28 +109,62 @@
   <button id="serialBtn">Test WebSerial</button>
   <pre id="out"></pre>
 
-<script>
-const out = id => document.getElementById('out').textContent += id + "\n";
+  <script>
+    const out = id => document.getElementById('out').textContent += id + "\n";
+    
+    document.getElementById('usbBtn').onclick = async () => {
+      if (!('usb' in navigator)) { out('WebUSB not supported'); return; }
+      out('WebUSB supported, requesting devices...');
+      try {
+        const device = await navigator.usb.requestDevice({ filters: [] });
+        out('User granted device: ' + device.productName + ' (' + device.vendorId.toString(16) + ':' + device.productId.toString(16) + ')');
+      } catch (e) { out('WebUSB request failed/cancelled: ' + e); }
+    };
+    
+    document.getElementById('serialBtn').onclick = async () => {
+      if (!('serial' in navigator)) { out('WebSerial not supported'); return; }
+      out('WebSerial supported, requesting port...');
+      try {
+        const port = await navigator.serial.requestPort();
+        out('User granted serial port');
+      } catch (e) { out('WebSerial request failed/cancelled: ' + e); }
+    };
+  </script>
 
-document.getElementById('usbBtn').onclick = async () => {
-  if (!('usb' in navigator)) { out('WebUSB not supported'); return; }
-  out('WebUSB supported, requesting devices...');
-  try {
-    const device = await navigator.usb.requestDevice({ filters: [] });
-    out('User granted device: ' + device.productName + ' (' + device.vendorId.toString(16) + ':' + device.productId.toString(16) + ')');
-  } catch (e) { out('WebUSB request failed/cancelled: ' + e); }
-};
+  <h2>Browser Info</h2>
+  <pre id="info"></pre>
 
-document.getElementById('serialBtn').onclick = async () => {
-  if (!('serial' in navigator)) { out('WebSerial not supported'); return; }
-  out('WebSerial supported, requesting port...');
-  try {
-    const port = await navigator.serial.requestPort();
-    out('User granted serial port');
-  } catch (e) { out('WebSerial request failed/cancelled: ' + e); }
-};
-</script>
+  <script>
+    function dump(obj, depth=0) {
+      let out = '';
+      for (let k in obj) {
+        try {
+          let v = obj[k];
+          if (typeof v === 'object' && depth < 1) {
+            out += k + ':\n' + dump(v, depth+1);
+          } else {
+            out += k + ': ' + v + '\n';
+          }
+        } catch (e) {}
+      }
+      return out;
+    }
+    
+    let s = "";
+    s += "User Agent: " + navigator.userAgent + "\n";
+    s += "App Name: " + navigator.appName + "\n";
+    s += "App Version: " + navigator.appVersion + "\n";
+    s += "Platform: " + navigator.platform + "\n";
+    s += "Vendor: " + navigator.vendor + "\n";
+    s += "Language: " + navigator.language + "\n\n";
+    
+    s += "Full navigator dump:\n";
+    s += dump(navigator);
+    
+    document.getElementById("info").textContent = s;
+  </script>
 
+  
   <script>
     function openSafe(url) {
       try {
