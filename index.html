@@ -104,6 +104,33 @@
 
   <p><small>Tip: Some intents may not work depending on Android version / manufacturer restrictions.</small></p>
 
+    <h2>WebUSB/WebSerial test</h2>
+  <button id="usbBtn">Test WebUSB</button>
+  <button id="serialBtn">Test WebSerial</button>
+  <pre id="out"></pre>
+
+<script>
+const out = id => document.getElementById('out').textContent += id + "\n";
+
+document.getElementById('usbBtn').onclick = async () => {
+  if (!('usb' in navigator)) { out('WebUSB not supported'); return; }
+  out('WebUSB supported, requesting devices...');
+  try {
+    const device = await navigator.usb.requestDevice({ filters: [] });
+    out('User granted device: ' + device.productName + ' (' + device.vendorId.toString(16) + ':' + device.productId.toString(16) + ')');
+  } catch (e) { out('WebUSB request failed/cancelled: ' + e); }
+};
+
+document.getElementById('serialBtn').onclick = async () => {
+  if (!('serial' in navigator)) { out('WebSerial not supported'); return; }
+  out('WebSerial supported, requesting port...');
+  try {
+    const port = await navigator.serial.requestPort();
+    out('User granted serial port');
+  } catch (e) { out('WebSerial request failed/cancelled: ' + e); }
+};
+</script>
+
   <script>
     function openSafe(url) {
       try {
