@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+  <style>
+    body { font-family: sans-serif; background:#111; color:#eee; text-align:center; }
+    input {
+      width: 90%; margin: 10px auto; padding: 10px;
+      font-size: 20px; border-radius: 6px; border:none; text-align:right;
+    }
+    button {
+      width: 20%; margin: 5px; padding: 15px;
+      font-size: 18px; border-radius: 6px; border:none;
+      background:#333; color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧮 Calculator</h1>
+  <input id="display" type="text" readonly>
+  <br>
+  <div>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('/')">÷</button>
+    <br>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('*')">×</button>
+    <br>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('-')">−</button>
+    <br>
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="press('+')">+</button>
+  </div>
+  <br>
+  <button onclick="clearDisplay()">🗑️ Clear</button>
+  <button onclick="window.location.href='index.html'">⬅️ Back</button>
+
+  <script>
+    const disp = document.getElementById("display");
+    function press(val){ disp.value += val; }
+    function calculate(){
+      try { disp.value = eval(disp.value); }
+      catch { disp.value = "Error"; }
+    }
+    function clearDisplay(){ disp.value = ""; }
+  </script>
+</body>
+</html>
