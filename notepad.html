@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notepad</title>
+  <style>
+    body { font-family: sans-serif; background:#111; color:#eee; text-align:center; }
+    textarea {
+      width: 90%; height: 70vh; margin-top: 10px;
+      background: #222; color: #eee; border-radius: 8px; padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin: 5px; padding: 10px 15px; border-radius: 6px; border:none;
+      background: #333; color:#fff; font-size:16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📝 Notepad</h1>
+  <textarea id="note"></textarea><br>
+  <button onclick="saveNote()">💾 Save</button>
+  <button onclick="clearNote()">🗑️ Clear</button>
+  <button onclick="window.location.href='index.html'">⬅️ Back</button>
+
+  <script>
+    const textarea = document.getElementById('note');
+    // Load saved note
+    textarea.value = localStorage.getItem('ihu_note') || '';
+    function saveNote() {
+      localStorage.setItem('ihu_note', textarea.value);
+      alert("Saved!");
+    }
+    function clearNote() {
+      textarea.value = '';
+      localStorage.removeItem('ihu_note');
+    }
+  </script>
+</body>
+</html>
