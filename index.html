@@ -35,6 +35,39 @@
   <h1>🚗 IHU Tools Launcher</h1>
   <p>Click any link below to test functions:</p>
 
+  <h1>🚗 IHU Toolbox</h1>
+
+  <!-- Navigation Controls -->
+  <button onclick="window.history.back()">⬅️ Back</button>
+  <button onclick="window.history.forward()">➡️ Forward</button>
+  <button onclick="location.reload()">🔄 Reload</button>
+
+  <hr>
+
+  <!-- Scheme Tests -->
+  <h2>Scheme Tests</h2>
+  <a href="tel:12345">📞 Test tel://</a>
+  <a href="mailto:test@example.com">✉️ Test mailto://</a>
+  <a href="geo:37.7749,-122.4194">📍 Test geo://</a>
+  <a href="market://details?id=com.example.app">🛒 Test market://</a>
+  <a href="content://settings/system">⚙️ Test content://</a>
+  <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">📲 Test intent://</a>
+
+  <hr>
+
+  <!-- LAN Tests -->
+  <h2>Local/LAN Tests</h2>
+  <a href="http://192.168.0.1">🌐 Router (192.168.0.1)</a>
+  <a href="http://10.0.0.2">🌐 Test Local Server</a>
+
+  <hr>
+
+  <!-- Simple Web Apps -->
+  <h2>Web Apps</h2>
+  <a href="notepad.html">📝 Notepad</a>
+  <a href="calc.html">🧮 Calculator</a>
+  <a href="maps.html">🗺️ Offline Map (if hosted)</a>
+
   <h2>⚙️ Android Settings</h2>
     <ul>
       <li><a href="intent:#Intent;action=android.settings.SETTINGS;end">Main Settings</a></li>
@@ -57,9 +90,9 @@
 
   <h2>📥 APK Installs (WIP)</h2>
   <ul>
-    <li><a href="https://yourserver.com/myapp.apk">Download MyApp.apk</a></li>
-    <li><a href="https://yourserver.com/fdroid.apk">Download F-Droid.apk</a></li>
-    <li><a href="https://yourserver.com/browser.apk">Download Alt Browser.apk</a></li>
+    <a href="market://details?id=com.android.settings">Open Settings</a><br>
+    <a href="https://f-droid.org/F-Droid.apk">Download F-Droid</a><br>
+    <a href="https://apkpure.com/whatsapp/com.whatsapp/download">Download WhatsApp</a>
   </ul>
 
   <h2>🔧 Other Tools</h2>
